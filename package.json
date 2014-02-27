@@ -1,0 +1,22 @@
+{
+  "name": "uglify",
+  "version": "0.0.0",
+  "description": "Minify JavaScript with Uglify",
+  "license": "MIT",
+  "repository": "https://github.com/sindresorhus/atom-uglify",
+  "private": true,
+  "activationEvents": [
+    "uglify"
+  ],
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "http://sindresorhus.com"
+  },
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "uglify-js": "^2.4.12"
+  }
+}
