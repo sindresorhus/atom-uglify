@@ -7,9 +7,11 @@
 
 ## Usage
 
-Open the Command Palette, and type `Uglify` if you're in a JS file. Otherwise select the inline JS first.
+Open the Command Palette, and type `Uglify`.
+
+Can also Uglify just a selection. For example the JS in a `<script>` tag.
 
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)

@@ -1,20 +1,24 @@
-/* global atom */
 'use strict';
 var uglify = require('uglify-js');
 var plugin = module.exports;
 
 function minify() {
+	var text;
+	var minified;
+	var isSelected = false;
 	var editor = atom.workspace.getActiveEditor();
-	var isJS = editor.getGrammar().name === 'JavaScript';
-	var text = '';
-	var minified = '';
 
 	if (!editor) {
 		return;
 	}
 
-	// minify only the selected text when not JS
-	text = isJS ? editor.getText() : editor.getSelectedText();
+	text = editor.getSelectedText();
+
+	if (text) {
+		isSelected = true;
+	} else {
+		text = editor.getText();
+	}
 
 	try {
 		minified = uglify.minify(text, {
@@ -27,10 +31,10 @@ function minify() {
 		return;
 	}
 
-	if (isJS) {
-		editor.setText(minified);
-	} else {
+	if (isSelected) {
 		editor.setTextInBufferRange(editor.getSelectedBufferRange(), minified);
+	} else {
+		editor.setText(minified);
 	}
 }
 
