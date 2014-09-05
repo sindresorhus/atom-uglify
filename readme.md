@@ -5,13 +5,22 @@
 > Minify JavaScript with [Uglify](https://github.com/mishoo/UglifyJS2)
 
 
+## Install
+
+```sh
+$ apm install uglify
+```
+
+Or Settings → Packages → Search for `uglify`
+
+
 ## Usage
 
 Open the Command Palette, and type `Uglify`.
 
-Can also Uglify just a selection. For example the JS in a `<script>` tag.
+Can also Uglify just a selection. For example the code in a `<script>` tag.
 
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com)

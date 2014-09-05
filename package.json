@@ -17,6 +17,6 @@
     "atom": ">=0.60.0"
   },
   "dependencies": {
-    "uglify-js": "^2.4.12"
+    "uglify-js": "^2.4.15"
   }
 }
