@@ -2,26 +2,19 @@
 var uglify = require('uglify-js');
 var plugin = module.exports;
 
-function minify() {
-	var text;
-	var minified;
-	var isSelected = false;
+function init() {
 	var editor = atom.workspace.getActiveEditor();
 
 	if (!editor) {
 		return;
 	}
 
-	text = editor.getSelectedText();
-
-	if (text) {
-		isSelected = true;
-	} else {
-		text = editor.getText();
-	}
+	var selectedText = editor.getSelectedText();
+	var text = selectedText || editor.getText();
+	var retText = '';
 
 	try {
-		minified = uglify.minify(text, {
+		retText = uglify.minify(text, {
 			fromString: true,
 			mangle: atom.config.get('uglify.mangle')
 		}).code;
@@ -31,10 +24,10 @@ function minify() {
 		return;
 	}
 
-	if (isSelected) {
-		editor.setTextInBufferRange(editor.getSelectedBufferRange(), minified);
+	if (selectedText) {
+		editor.setTextInBufferRange(editor.getSelectedBufferRange(), retText);
 	} else {
-		editor.setText(minified);
+		editor.setText(retText);
 	}
 }
 
@@ -43,5 +36,5 @@ plugin.configDefaults = {
 };
 
 plugin.activate = function () {
-	return atom.workspaceView.command('uglify', minify);
+	return atom.workspaceView.command('uglify', init);
 };
