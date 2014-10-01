@@ -1,6 +1,6 @@
 {
   "name": "uglify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Minify JavaScript",
   "license": "MIT",
   "repository": "sindresorhus/atom-uglify",
