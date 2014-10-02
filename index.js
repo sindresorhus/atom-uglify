@@ -1,6 +1,5 @@
 'use strict';
 var uglify = require('uglify-js');
-var plugin = module.exports;
 
 function init() {
 	var editor = atom.workspace.getActiveEditor();
@@ -31,10 +30,13 @@ function init() {
 	}
 }
 
-plugin.configDefaults = {
-	mangle: true
+exports.config = {
+	mangle: {
+		type: 'boolean',
+		default: true
+	}
 };
 
-plugin.activate = function () {
+exports.activate = function () {
 	atom.workspaceView.command('uglify', init);
 };
