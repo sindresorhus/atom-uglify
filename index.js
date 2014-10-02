@@ -36,5 +36,5 @@ plugin.configDefaults = {
 };
 
 plugin.activate = function () {
-	return atom.workspaceView.command('uglify', init);
+	atom.workspaceView.command('uglify', init);
 };
