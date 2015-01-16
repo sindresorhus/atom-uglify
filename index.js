@@ -2,7 +2,7 @@
 var uglify = require('uglify-js');
 
 function init() {
-	var editor = atom.workspace.getActiveEditor();
+	var editor = atom.workspace.getActiveTextEditor();
 
 	if (!editor) {
 		return;
@@ -38,5 +38,5 @@ exports.config = {
 };
 
 exports.activate = function () {
-	atom.workspaceView.command('uglify', init);
+	atom.commands.add('atom-workspace', 'uglify', init);
 };
