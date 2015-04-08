@@ -5,9 +5,9 @@
   "license": "MIT",
   "repository": "sindresorhus/atom-uglify",
   "private": true,
-  "activationEvents": [
-    "uglify"
-  ],
+  "activationCommands": {
+    "atom-text-editor": "uglify"
+  },
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
