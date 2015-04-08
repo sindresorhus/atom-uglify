@@ -38,5 +38,5 @@ exports.config = {
 };
 
 exports.activate = function () {
-	atom.commands.add('atom-workspace', 'uglify', init);
+	atom.commands.add('atom-text-editor', 'uglify', init);
 };
