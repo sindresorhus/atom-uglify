@@ -16,6 +16,11 @@
   "engines": {
     "atom": ">=0.190.0"
   },
+  "keywords": [
+    "javascript",
+    "minify",
+    "compress"
+  ],
   "dependencies": {
     "uglify-js": "^2.4.15"
   }
