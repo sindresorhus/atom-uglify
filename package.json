@@ -6,7 +6,7 @@
   "repository": "sindresorhus/atom-uglify",
   "private": true,
   "activationCommands": {
-    "atom-text-editor": "uglify"
+    "atom-workspace": "uglify"
   },
   "author": {
     "name": "Sindre Sorhus",
