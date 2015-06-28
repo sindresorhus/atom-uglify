@@ -1,5 +1,5 @@
-'use strict';
-var uglify = require('uglify-js');
+'use babel';
+import uglify from 'uglify-js';
 
 function init() {
 	var editor = atom.workspace.getActiveTextEditor();
@@ -8,9 +8,9 @@ function init() {
 		return;
 	}
 
-	var selectedText = editor.getSelectedText();
-	var text = selectedText || editor.getText();
-	var retText = '';
+	const selectedText = editor.getSelectedText();
+	const text = selectedText || editor.getText();
+	let retText = '';
 
 	try {
 		retText = uglify.minify(text, {
@@ -30,13 +30,13 @@ function init() {
 	}
 }
 
-exports.config = {
+export let config = {
 	mangle: {
 		type: 'boolean',
 		default: true
 	}
 };
 
-exports.activate = function () {
+export let activate = () => {
 	atom.commands.add('atom-workspace', 'uglify', init);
 };
