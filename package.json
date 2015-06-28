@@ -14,12 +14,13 @@
     "url": "http://sindresorhus.com"
   },
   "engines": {
-    "atom": ">=0.190.0"
+    "atom": ">=1.0.0"
   },
   "keywords": [
     "javascript",
     "minify",
-    "compress"
+    "compress",
+    "uglify"
   ],
   "dependencies": {
     "uglify-js": "^2.4.15"

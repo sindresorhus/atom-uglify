@@ -1,17 +1,15 @@
 # Uglify
 
-[Atom package](https://atom.io/packages/uglify)
-
 > Minify JavaScript with [Uglify](https://github.com/mishoo/UglifyJS2)
 
 
 ## Install
 
-```sh
+```
 $ apm install uglify
 ```
 
-Or Settings → Packages → Search for `uglify`
+Or Settings → Install → Search for `uglify`
 
 
 ## Usage
