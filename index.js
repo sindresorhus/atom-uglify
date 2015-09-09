@@ -1,8 +1,8 @@
-'use babel';
+/** @babel */
 import uglify from 'uglify-js';
 
 function init() {
-	var editor = atom.workspace.getActiveTextEditor();
+	const editor = atom.workspace.getActiveTextEditor();
 
 	if (!editor) {
 		return;
@@ -30,13 +30,13 @@ function init() {
 	}
 }
 
-export let config = {
+export const config = {
 	mangle: {
 		type: 'boolean',
 		default: true
 	}
 };
 
-export let activate = () => {
+export const activate = () => {
 	atom.commands.add('atom-workspace', 'uglify', init);
 };

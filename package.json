@@ -5,16 +5,16 @@
   "license": "MIT",
   "repository": "sindresorhus/atom-uglify",
   "private": true,
-  "activationCommands": {
-    "atom-workspace": "uglify"
-  },
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
-    "url": "http://sindresorhus.com"
+    "url": "sindresorhus.com"
+  },
+  "activationCommands": {
+    "atom-workspace": "uglify"
   },
   "engines": {
-    "atom": ">=1.0.0"
+    "atom": ">=1.0.11"
   },
   "keywords": [
     "javascript",
@@ -23,6 +23,21 @@
     "uglify"
   ],
   "dependencies": {
-    "uglify-js": "^2.4.15"
+    "uglify-js": "^2.4.24"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "xo": {
+    "esnext": true,
+    "globals": [
+      "atom"
+    ],
+    "ignores": [
+      "fixture*"
+    ]
+  },
+  "devDependencies": {
+    "xo": "*"
   }
 }
