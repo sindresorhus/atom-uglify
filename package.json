@@ -16,6 +16,9 @@
   "engines": {
     "atom": ">=1.0.11"
   },
+  "scripts": {
+    "test": "xo"
+  },
   "keywords": [
     "javascript",
     "minify",
@@ -25,19 +28,13 @@
   "dependencies": {
     "uglify-js": "^2.4.24"
   },
-  "scripts": {
-    "test": "xo"
+  "devDependencies": {
+    "xo": "*"
   },
   "xo": {
     "esnext": true,
     "globals": [
       "atom"
-    ],
-    "ignores": [
-      "fixture*"
     ]
-  },
-  "devDependencies": {
-    "xo": "*"
   }
 }
