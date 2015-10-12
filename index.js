@@ -1,5 +1,10 @@
 /** @babel */
-import uglify from 'uglify-js';
+import {allowUnsafeNewFunction} from 'loophole';
+
+let uglify;
+allowUnsafeNewFunction(() => {
+	uglify = require('uglify-js');
+});
 
 function init() {
 	const editor = atom.workspace.getActiveTextEditor();
@@ -13,10 +18,12 @@ function init() {
 	let retText = '';
 
 	try {
-		retText = uglify.minify(text, {
-			fromString: true,
-			mangle: atom.config.get('uglify.mangle')
-		}).code;
+		allowUnsafeNewFunction(() => {
+			retText = uglify.minify(text, {
+				fromString: true,
+				mangle: atom.config.get('uglify.mangle')
+			}).code;
+		});
 	} catch (err) {
 		console.error(err);
 		atom.beep();
