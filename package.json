@@ -4,15 +4,12 @@
   "description": "Minify JavaScript",
   "license": "MIT",
   "repository": "sindresorhus/atom-uglify",
-  "private": true,
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com"
   },
-  "activationCommands": {
-    "atom-workspace": "uglify"
-  },
+  "private": true,
   "engines": {
     "atom": ">=1.0.11"
   },
@@ -31,6 +28,9 @@
   },
   "devDependencies": {
     "xo": "*"
+  },
+  "activationCommands": {
+    "atom-workspace": "uglify"
   },
   "xo": {
     "esnext": true,
