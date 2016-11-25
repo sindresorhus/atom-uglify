@@ -1,4 +1,5 @@
 /** @babel */
+import {CompositeDisposable} from 'atom';
 import {allowUnsafeNewFunction} from 'loophole';
 
 let uglify;
@@ -6,13 +7,7 @@ allowUnsafeNewFunction(() => {
 	uglify = require('uglify-js');
 });
 
-function init() {
-	const editor = atom.workspace.getActiveTextEditor();
-
-	if (!editor) {
-		return;
-	}
-
+function init(editor) {
 	const selectedText = editor.getSelectedText();
 	const text = selectedText || editor.getText();
 	let retText = '';
@@ -26,14 +21,24 @@ function init() {
 		});
 	} catch (err) {
 		console.error(err);
-		atom.beep();
+		atom.notifications.addError('Uglify', {detail: err.message});
 		return;
 	}
+
+	const cursorPosition = editor.getCursorBufferPosition();
+	const line = atom.views.getView(editor).getFirstVisibleScreenRow() +
+		editor.displayBuffer.getVerticalScrollMargin();
 
 	if (selectedText) {
 		editor.setTextInBufferRange(editor.getSelectedBufferRange(), retText);
 	} else {
-		editor.setText(retText);
+		editor.getBuffer().setTextViaDiff(retText);
+	}
+
+	editor.setCursorBufferPosition(cursorPosition);
+
+	if (editor.getScreenLineCount() > line) {
+		editor.scrollToScreenPosition([line, 0]);
 	}
 }
 
@@ -44,6 +49,18 @@ export const config = {
 	}
 };
 
-export const activate = () => {
-	atom.commands.add('atom-workspace', 'uglify', init);
-};
+export function deactivate() {
+	this.subscriptions.dispose();
+}
+
+export function activate() {
+	this.subscriptions = new CompositeDisposable();
+
+	this.subscriptions.add(atom.commands.add('atom-workspace', 'uglify', () => {
+		const editor = atom.workspace.getActiveTextEditor();
+
+		if (editor) {
+			init(editor);
+		}
+	}));
+}
